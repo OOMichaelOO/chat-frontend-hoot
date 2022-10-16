@@ -1,17 +1,109 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import ChatWindow from "./components/chat/chatWindow";
+import App1 from "./App";
+import CreateRoom from "./components/popUp/createRoom";
+import ManipulateRoom from "./components/popUp/manipulateRoom";
+import JoinOrCancel from "./components/popUp/joinOrCancel";
+import LeaveOrCancel from "./components/popUp/leaveOrCancel";
+import RegisterAndLogin from "./components/login/registerAndLogin";
+import 'antd/dist/antd.css';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route, Link
+} from "react-router-dom";
+
+import {Breadcrumb} from "antd";
+
+function App() {
+    return (
+        <div>
+            <Breadcrumb>
+
+                <Breadcrumb.Item>
+                    <Link to="/app1">Demo</Link>
+                </Breadcrumb.Item>
+
+                <Breadcrumb.Item>
+                    <Link to="/register-and-login">register-and-login</Link>
+                </Breadcrumb.Item>
+
+                <Breadcrumb.Item>
+                    <Link to="/create-room">Create room</Link>
+                </Breadcrumb.Item>
+
+                <Breadcrumb.Item>
+                    <Link to="/manipulate-room">manipulate-room</Link>
+                </Breadcrumb.Item>
+
+                <Breadcrumb.Item>
+                    <Link to="/join-or-cancel">leave-or-cancel</Link>
+                </Breadcrumb.Item>
+
+                <Breadcrumb.Item>
+                    <Link to="/leave-or-cancel">join-or-cancel</Link>
+                </Breadcrumb.Item>
+
+                <Breadcrumb.Item>
+                    <Link to="/chat-window">chat-window</Link>
+                </Breadcrumb.Item>
+
+
+            </Breadcrumb>
+
+            <Switch>
+                {/* If the current URL is /about, this route is rendered
+            while the rest are ignored */}
+                <Route path="/chat-window">
+                    <ChatWindow />
+                </Route>
+
+                <Route path="/register-and-login">
+                    <RegisterAndLogin />
+                </Route>
+
+                <Route path="/create-room">
+                    <CreateRoom />
+                </Route>
+
+                <Route path="/manipulate-room">
+                    <ManipulateRoom />
+                </Route>
+
+                <Route path="/join-or-cancel">
+                    <JoinOrCancel />
+                </Route>
+
+                <Route path="/leave-or-cancel">
+                    <LeaveOrCancel />
+                </Route>
+
+                {/* Note how these two routes are ordered. The more specific
+            path="/contact/:id" comes before path="/contact" so that
+            route will render when viewing an individual contact */}
+                <Route path="/app1">
+                    <App1 />
+                </Route>
+
+                {/* If none of the previous routes render anything,
+            this route acts as a fallback.
+
+            Important: A route with path="/" will *always* match
+            the URL because all URLs begin with a /. So that's
+            why we put this one last of all */}
+                <Route path="/">
+                    <ChatWindow />
+                </Route>
+            </Switch>
+        </div>
+    );
+}
+
+ReactDOM.render(
+    <Router>
+        <App />
+    </Router>,
+    document.getElementById("root")
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
