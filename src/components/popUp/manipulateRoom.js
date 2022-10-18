@@ -5,7 +5,7 @@ import { Checkbox } from 'antd';
 import {Button} from "antd";
 
 const new_user = ['derek', 'jacob', 'sam'];
-const exist_user = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I']
+const exist_user = ['amy', 'daming', 'lingling', 'xize', 'yitao', 'jibai', 'wuxi', 'lulu', 'xixi']
 
 
 

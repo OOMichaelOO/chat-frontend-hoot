@@ -2,11 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom";
 import ChatWindow from "./components/chat/chatWindow";
 import App1 from "./App";
-import CreateRoom from "./components/popUp/createRoom";
-import ManipulateRoom from "./components/popUp/manipulateRoom";
-import JoinOrCancel from "./components/popUp/joinOrCancel";
-import LeaveOrCancel from "./components/popUp/leaveOrCancel";
+import JoinOrCancelPage from "./components/popUp/joinOrCancelPage";
+import LeaveOrCancelPage from "./components/popUp/leaveOrCancelPage";
 import RegisterAndLogin from "./components/login/registerAndLogin";
+import CreateRoomPage from "./components/popUp/createRoomPage";
+import ManipulateRoomPage from "./components/popUp/manipulateRoomPage";
 import 'antd/dist/antd.css';
 
 import {
@@ -65,19 +65,19 @@ function App() {
                 </Route>
 
                 <Route path="/create-room">
-                    <CreateRoom />
+                    <CreateRoomPage />
                 </Route>
 
                 <Route path="/manipulate-room">
-                    <ManipulateRoom />
+                    <ManipulateRoomPage />
                 </Route>
 
                 <Route path="/join-or-cancel">
-                    <JoinOrCancel />
+                    <JoinOrCancelPage />
                 </Route>
 
                 <Route path="/leave-or-cancel">
-                    <LeaveOrCancel />
+                    <LeaveOrCancelPage />
                 </Route>
 
                 {/* Note how these two routes are ordered. The more specific
